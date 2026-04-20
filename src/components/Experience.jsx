@@ -49,19 +49,10 @@ export default function Experience({ experiences = [], isAdmin = false, onDelete
       ) : (
         <div style={{ borderTop: '0.5px solid var(--color-border)' }}>
           {experiences.map((item) => (
-            <div
-              key={item.id}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '130px 1fr',
-                gap: '16px',
-                borderBottom: '0.5px solid var(--color-border)',
-                padding: '1rem 0',
-              }}
-            >
+            <div key={item.id} className="experience-row">
               {isAdmin && editingId === item.id ? (
                 <div style={{ gridColumn: '1 / -1' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '8px' }}>
+                  <div className="experience-edit-grid">
                     <input
                       placeholder="Periode (2022 - 2024)"
                       value={editForm.period}
@@ -73,7 +64,7 @@ export default function Experience({ experiences = [], isAdmin = false, onDelete
                       onChange={(e) => setEditForm((prev) => ({ ...prev, role: e.target.value }))}
                     />
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '8px' }}>
+                  <div className="experience-edit-grid">
                     <input
                       placeholder="Perusahaan"
                       value={editForm.company}

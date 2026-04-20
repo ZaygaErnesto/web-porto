@@ -3,18 +3,12 @@ import React from 'react'
 export default function Skills({ skills, isAdmin = false, onDelete }) {
   return (
     <div className="section" id="skills">
-      <p className="section-label">Skills & tools</p>
+      <p className="section-label">Skills &amp; tools</p>
 
       {skills.length === 0 ? (
         <div className="empty-state">Belum ada skill. Tambahkan lewat panel admin.</div>
       ) : (
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
-          gap: '1px',
-          background: 'var(--color-border)',
-          border: '0.5px solid var(--color-border)',
-        }}>
+        <div className="skills-grid">
           {skills.map(skill => (
             <div key={skill.id} style={{ background: 'var(--color-bg)', padding: '0.9rem 1rem', position: 'relative' }}>
               {isAdmin && (

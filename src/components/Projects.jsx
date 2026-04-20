@@ -59,13 +59,7 @@ export default function Projects({ projects, isAdmin, onDelete, onUpdate }) {
           Belum ada proyek. Tambahkan lewat panel admin.
         </div>
       ) : (
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '1px',
-          background: 'var(--color-border)',
-          border: '0.5px solid var(--color-border)',
-        }}>
+        <div className="projects-grid">
           {projects.map((proj, i) => (
             <div key={proj.id} style={{ ...cardStyle, background: 'var(--color-bg)' }}>
               {isAdmin && editingId === proj.id ? (

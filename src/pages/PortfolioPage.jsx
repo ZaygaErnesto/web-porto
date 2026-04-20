@@ -58,17 +58,11 @@ export default function PortfolioPage() {
       <Projects projects={projects} isAdmin={false} />
       <Contact info={info} />
 
-      <footer style={{
-        paddingTop: '2rem',
-        borderTop: '0.5px solid var(--color-border)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        marginTop: '1rem',
-      }}>
-        <span style={{ fontSize: '10px', color: 'var(--color-hint)', fontFamily: 'var(--font-mono)' }}>
+      <footer className="footer">
+        <span className="footer__text">
           {new Date().getFullYear()} — all rights reserved
         </span>
-        <span style={{ fontSize: '10px', color: 'var(--color-hint)', fontFamily: 'var(--font-mono)' }}>
+        <span className="footer__text">
           available for freelance
         </span>
       </footer>

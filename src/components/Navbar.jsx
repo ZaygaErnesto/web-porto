@@ -1,56 +1,30 @@
-import React from 'react'
-
-const navStyle = {
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  padding: '1.5rem 0',
-  borderBottom: '0.5px solid var(--color-border)',
-  marginBottom: '3rem',
-}
-
-const nameStyle = {
-  fontSize: '13px',
-  fontWeight: 500,
-  letterSpacing: '0.05em',
-  fontFamily: 'var(--font-mono)',
-}
-
-const linksStyle = {
-  display: 'flex',
-  gap: '20px',
-  alignItems: 'center',
-}
-
-const linkStyle = {
-  fontSize: '11px',
-  color: 'var(--color-hint)',
-  letterSpacing: '0.08em',
-  textTransform: 'uppercase',
-  cursor: 'pointer',
-}
-
-const adminBtnStyle = {
-  fontSize: '10px',
-  padding: '4px 12px',
-  border: '0.5px solid var(--color-border-strong)',
-  borderRadius: '3px',
-  background: 'transparent',
-  color: 'var(--color-muted)',
-  cursor: 'pointer',
-  letterSpacing: '0.06em',
-  textTransform: 'uppercase',
-}
+import React, { useState } from 'react'
 
 export default function Navbar({ siteName }) {
+  const [open, setOpen] = useState(false)
+
+  const handleLinkClick = () => setOpen(false)
+
   return (
-    <nav style={navStyle}>
-      <span style={nameStyle}>{siteName || 'DEV.PORTO'}</span>
-      <div style={linksStyle}>
-        <a href="#work" style={linkStyle}>Work</a>
-        <a href="#experience" style={linkStyle}>Experience</a>
-        <a href="#achievements" style={linkStyle}>Achievements</a>
-        <a href="#contact" style={linkStyle}>Contact</a>
+    <nav className="navbar">
+      <span className="navbar__name">{siteName || 'DEV.PORTO'}</span>
+
+      <button
+        className={`navbar__hamburger${open ? ' open' : ''}`}
+        onClick={() => setOpen((prev) => !prev)}
+        aria-label="Toggle navigation"
+        aria-expanded={open}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      <div className={`navbar__links${open ? ' open' : ''}`}>
+        <a href="#work" className="navbar__link" onClick={handleLinkClick}>Work</a>
+        <a href="#experience" className="navbar__link" onClick={handleLinkClick}>Experience</a>
+        <a href="#achievements" className="navbar__link" onClick={handleLinkClick}>Achievements</a>
+        <a href="#contact" className="navbar__link" onClick={handleLinkClick}>Contact</a>
       </div>
     </nav>
   )

@@ -14,13 +14,7 @@ export default function Hero({ info }) {
         {info?.role || 'Software Developer — Indonesia'}
       </p>
 
-      <h1 style={{
-        fontSize: '36px',
-        fontWeight: 500,
-        lineHeight: 1.15,
-        marginBottom: '1.25rem',
-        letterSpacing: '-0.02em',
-      }}>
+      <h1 className="hero-title">
         Building things<br />
         <span style={{ color: 'var(--color-hint)' }}>for the web.</span>
       </h1>
@@ -35,7 +29,7 @@ export default function Hero({ info }) {
         {info?.bio || 'Saya seorang developer yang fokus pada pengembangan aplikasi yang bersih, efisien, dan berpusat pada pengguna.'}
       </p>
 
-      <div style={{ display: 'flex', gap: '12px' }}>
+      <div className="hero-actions">
         <a href={`mailto:${info?.email}`} className="btn">
           Contact Me
         </a>
